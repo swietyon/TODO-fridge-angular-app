@@ -1,3 +1,6 @@
+# Lista "TO DO" - w formie karteczek samoprzylepnych na wirtualnej lodówce - TODO - fridge sticky notes
+
+
 # Proj3TodoFridge
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
@@ -25,3 +28,31 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+# POLISH
+
+## Opis
+
+Aplikacja internetowa służąca do zarządzania zadaniami i notatkami.
+
+## Cel aplikacji
+
+Celem aplikacji jest zapewnienie użytkownikom możliwości łatwego i prostego zarządzanie zadaniami i sporządzanie notatek za pomocą intuicyjnego interfejsu. 
+
+## Grupa docelowa
+
+Grupą docelową aplikacji jest dowolny użytkownik wykorzystujący aplikację na potrzeby osobiste lub komercyjne.
+
+
+## Autentykacja
+
+Użytkownik będzie mógł się zalogować na swoje konto za pomocą jednego z zewnętrznych serwisów (np. Google). Aplikacja nie będzie posiadać standardowego systemu rejestracji użytkownika.
+
+
+## Dostępne funkcjonalności dla użytkownika
+
+- Dodawanie notatek za pomocą formularza
+- Edycja notatek za pomocą formularza
+- Usuwanie notatek
+- Umieszczanie notatek poprzez przesuwanie ich
+- Wyświetlanie, edycja, oraz usuwanie notatek

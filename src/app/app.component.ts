@@ -7,6 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  navigation: string[] = [
+    "MOJE NOTATKI",
+    "DODAJ NOTATKĘ",
+    "MOJE NOTATKI",
+    "DODAJ NOTATKĘ",
+    "MOJE NOTATKI",
+    "DODAJ NOTATKĘ",
+  ]
 
   constructor(public router: Router) {
 

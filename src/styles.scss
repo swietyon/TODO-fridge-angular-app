@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
-@import url('https://fonts.googleapis.com/css2?family=Abel&family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500;600;700;800&display=swap');
 
 body {
     padding: 1vh 0 !important;
@@ -10,12 +10,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Abel', sans-serif;
-    // font-family: 'Russo One', sans-serif;
+    font-family: 'Baloo Tamma 2', cursive;
 }
 
-:host {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.mat-typography {
+    font-family: 'Baloo Tamma 2', cursive;
+}

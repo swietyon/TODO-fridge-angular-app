@@ -1,0 +1,35 @@
+.app-container {
+  .container-left {
+    height: 100%;
+    width: 30%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    left: 0;
+    background: linear-gradient(to bottom, #f4a332, #c65b41);
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    box-shadow: 1px 0px 10px 1px #f4a332;
+
+    .centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  }
+
+  .container-right {
+    height: 100%;
+    width: 70%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    right: 0;
+    background-color: transparent;
+
+  }
+}

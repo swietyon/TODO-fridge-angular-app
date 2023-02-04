@@ -1,1 +1,13 @@
-<app-main-view></app-main-view>
+<div class="app-container">
+  <div class="container-left">
+    <!-- W NGIF POTRZEBNY WARUNEK CZY ZOSTAŁA WYKONANA AUTHENTYKACJA -->
+    <div class="centered" *ngIf="router.url == '/dashboard'">
+        <p> TUTAJ JAKAŚ NAWIGACJA widoczna tylko dla tych co się zalogowali, (OGARNę)</p>
+    </div>
+  </div>
+  <div class="container-right">
+    <div class="centered">
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,13 +1,13 @@
 <div class="app-container">
   <div class="container-left">
     <!-- W NGIF POTRZEBNY WARUNEK CZY ZOSTAŁA WYKONANA AUTHENTYKACJA -->
+    <div class="nav-logo-container">
+        <img class="nav-logo-image" src="assets/logo.png" alt="logo.png">
+    </div>
     <div class="nav-container" *ngIf="router.url == '/dashboard'">
-        <p> TUTAJ JAKAŚ NAWIGACJA widoczna tylko dla tych co się zalogowali, (OGARNę)</p>
-
         <div class="nav-item" *ngFor="let navItem of navigation">
             <p>{{navItem}}</p>
         </div>
-
     </div>
   </div>
   <div class="container-right">

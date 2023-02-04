@@ -8,12 +8,12 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   navigation: string[] = [
-    "MOJE NOTATKI",
-    "DODAJ NOTATKĘ",
-    "MOJE NOTATKI",
-    "DODAJ NOTATKĘ",
-    "MOJE NOTATKI",
-    "DODAJ NOTATKĘ",
+    "FUNKCJA 1",
+    "FUNKCJA 2",
+    "FUNKCJA 3",
+    "FUNKCJA 4",
+    "FUNKCJA 5",
+    "FUNKCJA 6",
   ]
 
   constructor(public router: Router) {

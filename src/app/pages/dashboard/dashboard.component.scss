@@ -1,8 +1,7 @@
 .note-container {
-    width: 45%;
-    height: 100%;
-    float: left;
-    border: 1px solid #f4a332;
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,19 +18,19 @@
         text-align: center;
         color: #f4a332;
     }
-
 }
 
-.fridge-container {
-    width: 55%;
-    height: 100%;
-    float: left;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .fridge-image {
-        height: 600px;
-    }
-
+.add-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
 }
+
+.add-del {
+    position: fixed;
+    bottom: 20px;
+    right: 70px;
+    z-index: 100;
+}
+

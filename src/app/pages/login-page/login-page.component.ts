@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from "../../shared/services/auth.service";
 
 @Component({
   selector: 'app-login-page',
@@ -7,12 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
-  constructor(private router: Router) { }
+  constructor(private router: Router, public authService: AuthService) { }
 
   ngOnInit() { }
 
-  login() {
-    console.log('TU SIĘ LOGUJEMY')
-    this.router.navigate(['/dashboard'])
+  loginWithGoogle(): void {
+    this.authService.GoogleAuth().then(() => {
+      this.router.navigate(['/dashboard']);
+    });
   }
+
 }

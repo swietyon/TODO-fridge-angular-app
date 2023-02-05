@@ -5,6 +5,11 @@
     <p>Przenieś ikonkę na lodówkę by dodać notatkę</p>
 </div>
 
-<div class="fridge-container">
-    <img class="fridge-image" src="assets/fridge.png" alt="fridge image">
-</div>
+<button mat-mini-fab color="primary" class="add-btn" (click)="openDialog('0ms', '0ms')">
+          <i class="fa fa-plus"></i>
+</button>
+
+<!-- If note would be moved on trash icon then display dialog "Do you want to remove note" -->
+<button mat-mini-fab color="primary" class="add-del">
+          <i class="fa fa-trash"></i>
+</button>

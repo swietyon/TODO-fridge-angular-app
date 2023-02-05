@@ -1,0 +1,14 @@
+:host{
+    height: 10vh;
+
+    nav {
+        background-color: #f4a332 !important;
+        .example-header-image {
+            background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+            background-size: cover;
+            width: 30px;
+            height: 30px;
+        }
+
+    }
+}

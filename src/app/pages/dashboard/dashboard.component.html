@@ -1,15 +1,20 @@
-<div class="note-container">
-    <!-- <h1>FRAMEWORKS</h1>
+<div class="dashboard-container">
+  <!-- <h1>FRAMEWORKS</h1>
     <h3>ng2-dragula LUB ngx-drag-and-drop</h3> -->
-    <img class="note-image" src="assets/note.png" alt="draggable note">
-    <p>Przenieś ikonkę na lodówkę by dodać notatkę</p>
+  <!-- <img class="note-image" src="assets/note.png" alt="draggable note">
+    <p>Przenieś ikonkę na lodówkę by dodać notatkę</p> -->
+  <div class="left-container">
+    <div class="my-todos-title">
+        <span>MY NOTES</span>
+    </div>
+    <app-todos></app-todos>
+  </div>
+
+  <div class="right-container">
+    <app-edit-todo-form></app-edit-todo-form>
+  </div>
 </div>
-
-<button mat-mini-fab color="primary" class="add-btn" (click)="openDialog('0ms', '0ms')">
-          <i class="fa fa-plus"></i>
-</button>
-
-<!-- If note would be moved on trash icon then display dialog "Do you want to remove note" -->
-<button mat-mini-fab color="primary" class="add-del">
-          <i class="fa fa-trash"></i>
-</button>
+<div class="footer">
+    <p>@Copyright 2023</p>
+    <p>Developed by Anna Dybel, Krzysztof Dulęba, Maksymilian Świętoń</p>
+</div>

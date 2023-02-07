@@ -1,1 +1,55 @@
-<p>edit-todo-form works!</p>
+<div class="todo-edit-container">
+  <div class="form-group">
+    <textarea
+      type="text"
+      placeholder="Title"
+      [(ngModel)]="todoService.newTodo.title"
+      class="form-control title"
+      name="title"
+      placeholder="Title"
+      (change)="this.todoService.updateTodo()"
+    ></textarea>
+  </div>
+  <div class="form-group">
+    <textarea
+      type="text"
+      placeholder="Note"
+      [(ngModel)]="todoService.newTodo.todoText"
+      class="form-control todo-text"
+      name="todoText"
+      placeholder="Todo Text"
+      (change)="this.todoService.updateTodo()"
+    ></textarea>
+  </div>
+
+  <div class="form-group">
+    <p for="priorityInput">Priority:</p>
+    <mat-radio-group
+      aria-label="Select an option"
+      (change)="todoService.prioritySelection($event)"
+      class="row"
+      [value]="priorities.low"
+    >
+      <mat-radio-button [value]="priorities.low" color="primary" class="col">
+        {{ priorities.low }}
+      </mat-radio-button>
+      <mat-radio-button [value]="priorities.medium" color="primary" class="col">
+        {{ priorities.medium }}
+      </mat-radio-button>
+      <mat-radio-button [value]="priorities.high" color="primary" class="col">
+        {{ priorities.high }}
+      </mat-radio-button>
+
+      <!-- *ngIf="!todoService.setTodo(todoService.newTodo.id)" -->
+      <button
+        *ngIf="true"
+        class="col"
+        mat-raised-button
+        color="primary"
+        (click)="todoService.addTodo(todoService.newTodo)"
+      >
+        ADD
+      </button>
+    </mat-radio-group>
+  </div>
+</div>

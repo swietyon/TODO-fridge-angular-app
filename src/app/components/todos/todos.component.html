@@ -1,1 +1,41 @@
-<p>todos works!</p>
+<div class="all-todos">
+  <table *ngIf="allTodos.length > 0">
+    <tr *ngFor="let item of allTodos" (click)="setTodo(item.id)">
+      <td
+        class="priority"
+        [ngStyle]="{
+          'background-color':
+            item.priority === 'low'
+              ? '#c4f432'
+              : item.priority === 'medium'
+              ? '#f4a332'
+              : '#c65b41'
+        }"
+      ></td>
+      <td class="todo-info">
+        <div>
+          <p class="title">{{ item.title | uppercase }}</p>
+          <p class="todo-text">{{ item.todoText }}</p>
+        </div>
+      </td>
+      <td class="todo-date">
+        <p>{{ item.date | date : "shortTime" }}</p>
+        <p>{{ item.date | date : "shortDate" }}</p>
+      </td>
+      <td>
+        <button
+          (click)="deleteTodo(item.id)"
+          mat-mini-fab
+          color="primary"
+          class="add-del"
+        >
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </table>
+  <div class="no-todos" *ngIf="allTodos.length == 0">
+    <img src="assets/note.png" alt="note" width="100" />
+    <p>You have not added any note here. Add note to display list.</p>
+  </div>
+</div>

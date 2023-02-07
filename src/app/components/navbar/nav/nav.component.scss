@@ -2,7 +2,7 @@
     height: 10vh;
 
     nav {
-        background-color: #f4a332 !important;
+        background: linear-gradient(30deg, #f4a332 70%, #c65b41 ) !important;
         .example-header-image {
             background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
             background-size: cover;
@@ -11,4 +11,8 @@
         }
 
     }
+}
+
+.fa-sign-out {
+    font-size: 25px;
 }

@@ -1,0 +1,33 @@
+<form>
+  <input
+    [(ngModel)]="todoService.newTodo.title"
+    name="title"
+    placeholder="Title"
+  />
+  <input
+    [(ngModel)]="todoService.newTodo.todoText"
+    name="todoText"
+    placeholder="Todo Text"
+  />
+  <select
+    [(ngModel)]="todoService.newTodo.priority"
+    name="priority"
+    (change)="todoService.prioritySelection($event)"
+  >
+    <option
+      *ngFor="let priority of todoService.priorities | keyvalue"
+      [value]="priority.key"
+    >
+      {{ priority.value }}
+    </option>
+  </select>
+  <button (click)="todoService.addTodo(todoService.newTodo)">Add Todo</button>
+</form>
+
+<ul>
+  <li *ngFor="let todo of todoService.allTodos">
+    {{ todo.title }} - {{ todo.todoText }} - {{ todo.priority }}
+    <button (click)="todoService.setTodo(todo.id)">Edit</button>
+    <button (click)="todoService.deleteTodo(todo.id)">Delete</button>
+  </li>
+</ul>

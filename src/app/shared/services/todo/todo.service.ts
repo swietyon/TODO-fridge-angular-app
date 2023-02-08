@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { v4 as uuidv4 } from 'uuid';
 import { Todo, Priority, originalEmptyTodo } from 'src/app/shared/services/todo/todo.types';
 import { getTodos, todoStore, addTodo, deleteTodo, updateTodo, isTodoInStore, getUserUid } from './todo.repository';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class TodoService {
   allTodos!: Todo[];
   todosLength = 0;
 
-  constructor() {
+  constructor(private authService: AuthService) {
     const todos = getTodos();
     this.allTodos = todos.todos;
     todoStore.subscribe((state: any) => {
@@ -42,7 +43,7 @@ export class TodoService {
       // const res = await db.collection('todos').doc('LA').set(todo);
       addTodo(todo);
       this.newTodo = { ...originalEmptyTodo };
-      console.log(getUserUid())
+      this.authService.addTodoToFirestore(todo)
     }
   }
 

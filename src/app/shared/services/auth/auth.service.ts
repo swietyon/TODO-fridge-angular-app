@@ -2,8 +2,20 @@ import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
-import { addDoc, CollectionReference } from 'firebase/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Todo } from '../todo/todo.types';
+import { map, Observable } from 'rxjs';
+import { getUserUid } from '../todo/todo.repository';
 
+
+const data = {
+  id: "fdafadfad",
+  title: '',
+  todoText: '',
+  date: new Date(),
+  priority: "low",
+  userId: ''
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +25,7 @@ export class AuthService {
   constructor(
     public afAuth: AngularFireAuth,
     public router: Router,
+    private firestore: AngularFirestore,
     public ngZone: NgZone // NgZone service to remove outside scope warning
   ) {
     // Setting logged in user in localstorage else null
@@ -90,7 +103,47 @@ export class AuthService {
     });
   }
 
-  addData() {
+  addTodoToFirestore(data: Todo) {
+    return new Promise<any>((resolve, reject) => {
+      this.firestore
+        .collection("todos")
+        .add(data)
+        .then(res => { console.log(res) }, err => reject(err));
+    });
   }
 
+  deleteTodoFromFirestore(id: string) {
+    return new Promise<any>((resolve, reject) => {
+      this.firestore
+        .collection("todos")
+        .doc(id)
+        .delete()
+        .then(res => { console.log(res) }, err => reject(err));
+    });
+  }
+
+  editTodoInFirestore(id: string, data: Todo) {
+    return new Promise<any>((resolve, reject) => {
+      this.firestore
+        .collection("todos")
+        .doc(id)
+        .update(data)
+        .then(res => { console.log(res) }, err => reject(err));
+    });
+  }
+
+  getTodosFromFirestore(): Observable<Todo[]> {
+    const currentUserUid = getUserUid();
+    return this.firestore
+      .collection('todos', ref => ref.where('userId', '==', currentUserUid))
+      .get()
+      .pipe(
+        map((querySnapshot: { docs: any[]; }) => {
+          return querySnapshot.docs.map((doc: { data: () => any; id: any; }) => {
+            const data = doc.data();
+            return { id: doc.id, ...data } as Todo;
+          });
+        })
+      );
+  }
 }

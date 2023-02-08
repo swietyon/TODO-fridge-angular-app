@@ -1,6 +1,7 @@
 import { createStore, withProps } from '@ngneat/elf';
 import { v4 as uuidv4 } from 'uuid';
 import { Todo } from "./todo.types";
+
 export interface TodoState {
     todos: Todo[];
 }
@@ -15,6 +16,7 @@ export const todoStore = createStore(
         initialTodoState
     )
 )
+
 
 export const getUserUid = () => {
     const user = JSON.parse(localStorage.getItem('user')!);

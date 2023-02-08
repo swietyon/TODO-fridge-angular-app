@@ -1,13 +1,20 @@
 <div class="header-container" *ngIf="authService.isLoggedIn === true">
-    <nav class="navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="assets/note-white.png" height="25" alt="">
-            </a>
-            <form class="form-inline my-2 my-lg-0">
-                <i class="fa fa-sign-out text-white fa-lg" (click)="authService.SignOut()"></i>
-            </form>
-            <button (click)="add()">clicks</button>
-        </div>
-    </nav>
+  <nav class="navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="assets/note-white.png" height="25" alt="" />
+      </a>
+      <form class="form-inline my-2 my-lg-0">
+        <i
+          class="fa fa-sign-out text-white fa-lg"
+          (click)="authService.SignOut()"
+        ></i>
+      </form>
+      <ul>
+        <li *ngFor="let todo of todos">
+          {{ todo.id }} - {{ todo.title }}
+        </li>
+      </ul>
+    </div>
+  </nav>
 </div>

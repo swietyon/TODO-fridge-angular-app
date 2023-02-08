@@ -13,19 +13,19 @@ Link: https://github.com/swietyon/TODO-fridge-angular-app
 - Firebase
 
 ## Strona główna
-![(/screenshots/1.png)
+![(/screenshots/1.png)]
 
 Strona główna zawiera logo aplikacji oraz odnośniki z ikonkami do odnośniki słuące do zalogowania się za pomocą jednego z dostępnych zewnętrznych dostawców - Facebook, Twitter, GitHub, Google.
 
 ## Logowanie
-![(/screenshots/4.png)
+![(/screenshots/4.png)]
 
 Kliknięcie ikonki odpowiadającej jednemu z dostępnych dostawców przekierowuje użytkownika na stronę autoryzacji tego dostawcy. Następnie po poprawnym zalogowaniu się użytkownik zostaje przekierowany na stronę związaną z zarządzaniem zadaniami.
 
 ## Strona z zarządzaniem zadaniami
-![(/screenshots/2.png)
+![(/screenshots/2.png)]
 
-![(/screenshots/3.png)
+![(/screenshots/3.png)]
 
 Na górze strony znajduje się pasek nawigacyjny. Na panelu nawigacyjnym po lewej stronie widoczna jest ikonka z logo aplikacji, a na środku znajduje się ikonka z odnośnikiem służącym do wylogowania użytkownika. Poniżej paska nawigacyjnego znajduje się panel służący do zarządzania notatkami. Na tym panelu prawej stronie znajduje się formularz służący do dodawania notatek, a po lewej stronie znajduje się lista dostępnych notatek. Utworzone notatki można następnie edytować i usuwać. Na dole strony widoczna jest stopka z oznaczniem autorów aplikacji.
 

@@ -17,10 +17,14 @@ export const todoStore = createStore(
     )
 )
 
-
 export const getUserUid = () => {
-    const user = JSON.parse(localStorage.getItem('user')!);
-    return user.uid;
+    // const user = JSON.parse(localStorage.getItem('user')!);
+    // if(user.uid !== null) {
+    //     return user.uid;
+    // }
+    // else {
+    //     return '';
+    // }
   }
 
 export const addTodo = (todo: Todo) => {

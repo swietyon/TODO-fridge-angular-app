@@ -14,7 +14,7 @@ export class TodoService {
     todoText: '',
     date: new Date(),
     priority: Priority.low,
-    userId: getUserUid()
+    userId: ''
   };
 
   isAddingPopupDisplayed = false;
@@ -63,6 +63,7 @@ export class TodoService {
 
   updateTodo() {
     updateTodo(this.newTodo);
+    // this.authService.editTodoInFirestore(this.newTodo.id, this.newTodo);
   }
 
   prioritySelection(event: any) {

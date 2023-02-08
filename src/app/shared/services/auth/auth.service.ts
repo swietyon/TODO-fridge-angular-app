@@ -22,6 +22,7 @@ const data = {
 
 export class AuthService {
   userData: any;
+  snapshotChangesSubscription: any;
   constructor(
     public afAuth: AngularFireAuth,
     public router: Router,
@@ -133,9 +134,9 @@ export class AuthService {
   }
 
   getTodosFromFirestore(): Observable<Todo[]> {
-    const currentUserUid = getUserUid();
+    // const currentUserUid = getUserUid();
     return this.firestore
-      .collection('todos', ref => ref.where('userId', '==', currentUserUid))
+      .collection('todos', ref => ref.where('userId', '==', 'currentUserUid'))
       .get()
       .pipe(
         map((querySnapshot: { docs: any[]; }) => {
@@ -145,5 +146,16 @@ export class AuthService {
           });
         })
       );
+  }
+
+  getTasks(){
+    return new Promise<any>((resolve, reject) => {
+      this.afAuth.user.subscribe(currentUser => {
+        if(currentUser){
+          this.snapshotChangesSubscription = this.firestore.collection('todos').doc(currentUser.uid).collection('tasks').snapshotChanges();
+          resolve(this.snapshotChangesSubscription);
+        }
+      })
+    });
   }
 }

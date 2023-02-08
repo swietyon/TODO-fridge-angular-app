@@ -40,15 +40,33 @@
         {{ priorities.high }}
       </mat-radio-button>
 
-      <!-- *ngIf="!todoService.setTodo(todoService.newTodo.id)" -->
       <button
-        *ngIf="true"
+        *ngIf="todoService.isTodoInStore(todoService.newTodo.id)"
+        class="col"
+        mat-stroked-button
+        color="primary"
+        (click)="todoService.updateTodo(); todoService.stopEditing()"
+      >
+        SAVE
+      </button>
+      <button
+        *ngIf="todoService.isTodoInStore(todoService.newTodo.id)"
+        class="col"
+        mat-stroked-button
+        color="primary"
+        (click)="todoService.stopEditing()"
+      >
+        STOP EDITING
+      </button>
+      <button
         class="col"
         mat-raised-button
         color="primary"
         (click)="todoService.addTodo(todoService.newTodo)"
       >
-        ADD
+        {{
+          todoService.isTodoInStore(todoService.newTodo.id) ? "ADD NEW" : "ADD"
+        }}
       </button>
     </mat-radio-group>
   </div>

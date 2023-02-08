@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { v4 as uuidv4 } from 'uuid';
 import { Todo, Priority, originalEmptyTodo } from 'src/app/shared/services/todo/todo.types';
-import { getTodos, todoStore, addTodo, deleteTodo, updateTodo } from './todo.repository';
+import { getTodos, todoStore, addTodo, deleteTodo, updateTodo, isTodoInStore, getUserUid } from './todo.repository';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,7 @@ export class TodoService {
     todoText: '',
     date: new Date(),
     priority: Priority.low,
+    userId: getUserUid()
   };
 
   isAddingPopupDisplayed = false;
@@ -23,7 +24,7 @@ export class TodoService {
   constructor() {
     const todos = getTodos();
     this.allTodos = todos.todos;
-    todoStore.subscribe((state:any) => {
+    todoStore.subscribe((state: any) => {
       this.allTodos = state.todos;
       this.todosLength = state.todos.length;
     });
@@ -33,14 +34,16 @@ export class TodoService {
     return getTodos();
   }
 
-  addTodo(passedTodo: Todo) {
+  async addTodo(passedTodo: Todo) {
     const todo = { ...passedTodo };
     if (todo.title.length === 0 && todo.todoText.length === 0) {
       console.log('couldnt add todo');
     } else {
+      // const res = await db.collection('todos').doc('LA').set(todo);
       addTodo(todo);
+      this.newTodo = { ...originalEmptyTodo };
+      console.log(getUserUid())
     }
-    this.newTodo = { ...originalEmptyTodo };
   }
 
   deleteTodo(todoId: string) {
@@ -63,5 +66,13 @@ export class TodoService {
 
   prioritySelection(event: any) {
     this.newTodo.priority = event.value;
+  }
+
+  isTodoInStore(passedId: string) {
+    return isTodoInStore(passedId)
+  }
+
+  stopEditing() {
+    this.newTodo = { ...originalEmptyTodo };
   }
 }

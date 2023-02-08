@@ -2,6 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
+import { addDoc, CollectionReference } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +68,7 @@ export class AuthService {
       }
     });
   }
+
   // Auth logic to run auth providers
   AuthLogin(provider: any) {
     return this.afAuth
@@ -87,4 +89,8 @@ export class AuthService {
       this.router.navigate(['/login']);
     });
   }
+
+  addData() {
+  }
+
 }

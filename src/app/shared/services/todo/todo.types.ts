@@ -12,6 +12,7 @@ export interface Todo {
     todoText: string,
     date: Date,
     priority: Priority,
+    userId: string
 }
 
 export const originalEmptyTodo = {
@@ -20,4 +21,5 @@ export const originalEmptyTodo = {
     todoText: '',
     date: new Date(),
     priority: Priority.low,
+    userId: ''
 };

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { map, Subscription } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import { Todo } from 'src/app/shared/services/todo/todo.types';
 
@@ -9,13 +10,16 @@ import { Todo } from 'src/app/shared/services/todo/todo.types';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-  todos!: Todo[];
-  constructor(private router: Router, public authService: AuthService) { 
+  todos: Subscription;
+  bla$: any;
+
+  constructor(private router: Router, public authService: AuthService) {
+    this.todos = this.authService.getTodosFromFirestore().subscribe((state: any) => {
+      return state;
+    })
+    this.bla$ = this.authService.getTodosFromFirestore().pipe(map((state) => { return state }))
   }
 
   ngOnInit(): void {
-    this.authService.getTodosFromFirestore().subscribe(todos => {
-      this.todos = todos;
-  });
   }
 }

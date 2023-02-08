@@ -10,11 +10,12 @@
           (click)="authService.SignOut()"
         ></i>
       </form>
-      <ul>
-        <li *ngFor="let todo of todos">
-          {{ todo.id }} - {{ todo.title }}
+      <!-- <ul>
+        <li *ngFor="let todo of (bla$ | async) | keyvalue">
+          {{ todo.title }} - {{ todo.todoText }}
         </li>
-      </ul>
+      </ul> -->
+      <!-- <p>{{ bla$ | async }}</p> -->
     </div>
   </nav>
 </div>

@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FridgeComponent } from './components/fridge/fridge.component';
 import { TodosComponent } from './components/todos/todos.component';
 import { EditTodoFormComponent } from './components/edit-todo-form/edit-todo-form.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -31,7 +30,6 @@ import {MatRadioModule} from '@angular/material/radio';
 @NgModule({
   declarations: [
     AppComponent,
-    FridgeComponent,
     TodosComponent,
     EditTodoFormComponent,
     LoginPageComponent,
